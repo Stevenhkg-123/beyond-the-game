@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: beyond-the-game-hk
+    runtime: python
+    plan: free
+    region: virginia
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.18
+      - key: BTG_FORUM_DATABASE_URL
+        sync: false
